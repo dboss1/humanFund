@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>Human Fund Home</title>
+	<meta name="author" content="David Boss">
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/human.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!-- Reactive website CSS taken from W3schools.com. -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+	<!-- Banner/header Section -->
+            
+   <div class="row">
+      <div class="column">
+         <span class="left"><img src="/static/registration/logo.png" class="logo"></span>
+         <span class="center"><h2 class ="human">Money for people.</h2></span>
+      </div>
+      <div class="column">
+         <div class="right">
+             <div class="w3-bar w3-black">
+                 <a class="w3-bar-item w3-button" href={% url 'humanFund' %}>About</button>
+                 <a class="w3-bar-item w3-button" href={% url 'registration' %}>Register</button>
+                 <a class="w3-bar-item w3-button" href={% url 'login' %}>Login</a>
+               </div>
+         </div>
+      </div>
+   </div>
+     <hr /> 
+ 
+
+		<div class="container">
+			<h1 class="human">The Human Fund</h1>
+			
+		</div>
+ 
+		<div class="row">
+			<div class="column">
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol>
+					<!-- This is the default bootstrap carousel slider found of w3schools.com  -->
+					<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<div class="item active">
+					<img src="/static/registration/human-fund.jpg" alt="Money for people"  class="slide">
+					</div>
+
+					<div class="item">
+						<img src="/static/registration/donation.jpg" alt="A donation card" class="slide">
+					</div>
+
+					<div class="item">
+						<img src="/static/registration/newsStory.jpg" alt="A news story about Festivus (seriously).." class="slide">
+					</div>
+				</div>
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+					  <span class="glyphicon glyphicon-chevron-left"></span>
+					  <span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next">
+					  <span class="glyphicon glyphicon-chevron-right"></span>
+					  <span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+	<div class="column">
+         <div class="w3-bar w3-black">
+           <button class="w3-bar-item w3-button" onclick="openTab('founder')">Our Founder</button>
+           <button class="w3-bar-item w3-button" onclick="openTab('work')">Our Work</button>
+           <button class="w3-bar-item w3-button" onclick="openTab('miracles')">Festivus Miracles</button>
+           <button class="w3-bar-item w3-button" onclick="openTab('testimonials')">Testimonials</button>
+         </div>
+
+         <div id="founder" class="w3-container tab form-border-human">
+           <h2>Our Founder</h2>
+           <p>The Human Fund was founded by George Costanza (aka Art Vandelay) as a way to get out of giving his co-workers Christmas gifts.</p>
+		   <p>The Costanza's celebrated Festivus, and the giving of fake Human Fund donations to office workeres in lieu of real holiday gifts contines to this day!</p>
+         </div>
+
+         <div id="work" class="w3-container tab form-border-human" style="display:none">
+           <h2>Our Work</h2>
+           <p>The Human Fund offers money for people. Everyone needs money, everyone is a person. Person is singular for people, so if you are a person, you should like the human fund.</p>
+			<p>More than just money (for people), the Human Fund offers a chance for those that celebrate non-traditional holiday events, and those who don't celebrate at all, a chance
+				to show their differences with a bit of levity.</p>
+         </div>
+         
+         <div id="miracles" class="w3-container tab form-border-human" style="display:none">
+           <h2>Festivus Miracles</h2>
+           <p>Donations to the Human Fund have become a festivus tration, and miracles go hand-in-hand with the Festivus spirit!</p>
+         </div>
+		 
+
+         <div id="testimonials" class="w3-container tab form-border-human" style="display:none">
+           <h2>Testimonials</h2>
+           <p id="testify"><br /></p>
+		   <button id="jerry">Jerry Seinfeld</button>
+		   <button id="kruger">Mr. Kruger</button>
+		   <button id="george">George Costanza</button>
+		   <script>
+				$(document).ready(function(){
+				  $("#jerry").click(function(){
+					$("#testify").text("It has a certain understated stupidity. - Jerry Seinfeld");
+				  });
+				  $("#kruger").click(function(){
+					$("#testify").text("There's a memo here from accounting telling me there's no such thing as the Human Fund. - Mr. Kruger");
+				  });
+				  $("#george").click(function(){
+					$("#testify").text("I made it up! - George Costanza");
+				  });
+				});
+				</script>
+         </div>
+		</div>
+	</div>
+
+         <script>
+         function openTab(tabName) {
+           var i;
+           var x = document.getElementsByClassName("tab");
+           for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";  
+           }
+           document.getElementById(tabName).style.display = "block";  
+         }
+			function validateForm() {
+				var x = document.forms["login"]["username"].value;
+				var y = document.forms["login"]["password"].value;
+				if (x == "" || y == "") {
+				alert("Either UserID or Password are Invalid. Please try again.");
+				return false;
+			  }
+			}
+		</script>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<hr />
+<div class="clear"></div>
+   <div class="column3"><p>The Human Fund</p>
+   <p>1234 Fake Street</p>
+   <p>New York, New York</p></div>
+   <div class="column3">Site Map  | Terms and Conditions | Copy Right 2020 </div>
+   <div class="column3">
+   <p>Financial Reports</p>
+	<p>Festivus for the Restivus</p>
+	<p>Aluminum Pole Purchasing</p></div>
+
+	</body>
+
+</html>
